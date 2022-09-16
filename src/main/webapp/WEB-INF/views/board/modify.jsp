@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+System.out.println("pass:"+request.getParameter("pass"));
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +13,7 @@
 <script>
 	function check(){
 		var password = document.getElementById("pass");
-		if(${param.pass}!=password.value){
+		if('${param.pass}'!==password.value){
 			alert("비밀번호가 틀렸습니다. 다시 입력해 주세요.");
 			password.focus();
 			return false;
