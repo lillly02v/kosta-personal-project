@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-	int nowPage = Integer.parseInt(request.getParameter("nowPage"));
-	String pass = request.getParameter("pass");
-	System.out.println("pass:"+pass);
-	pageContext.setAttribute("pass", pass);
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +10,7 @@
 <script>
 	function check(){
 		var password = document.getElementById("pass");
-		if(<%=pass%>!=password.value){
+		if(${param.pass}!=password.value){
 			alert("비밀번호가 틀렸습니다. 다시 입력해 주세요.");
 			password.focus();
 			return false;
@@ -58,7 +52,7 @@
 					</table>
 				
 					<div class="bottom">
-						<a href="/mysite/board?a=list&nowPage=<%=nowPage%>">취소</a>
+						<a href="/mysite/board?a=list&nowPage=${param.nowPage}">취소</a>
 						<input type="submit" value="수정" onClick="return check();">
 					</div>
 				</form>				
