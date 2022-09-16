@@ -38,7 +38,7 @@
 						<td class="label">첨부파일</td>
 						<td>
 							<c:choose>
-								<c:when test="${empty boardVo.filename1}">
+								<c:when test="${not empty boardVo.filename1}">
 									<a href="/mysite/board?a=download&filename=${boardVo.filename1 }">${boardVo.filename1 }</a>
 									&nbsp;&nbsp;<font color="blue">(${boardVo.filesize1 }KBytes)</font>  
 								</c:when>
@@ -52,7 +52,7 @@
 						<td class="label">첨부파일</td>
 						<td>
 							<c:choose>
-								<c:when test="${empty boardVo.filename2}">
+								<c:when test="${not empty boardVo.filename2}">
 									<a href="/mysite/board?a=download&filename=${boardVo.filename2 }">${boardVo.filename2 }</a>
 									&nbsp;&nbsp;<font color="blue">(${boardVo.filesize2 }KBytes)</font> 
 								</c:when>
