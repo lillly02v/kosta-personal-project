@@ -1,20 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="com.kosta.hsm.dao.BoardDaoImpl"%>
-<%@ page import="com.kosta.hsm.dao.BoardDao"%>
-<%@ page import="com.kosta.hsm.vo.BoardVo"%>
-<%@ page import="com.kosta.hsm.vo.UserVo"%>
-<%
-	String nowPage = (String)request.getAttribute("nowPage");
-	System.out.println("nowPage:"+nowPage);
-	String ref = (String)request.getAttribute("ref");
-	String pos = (String)request.getAttribute("pos");
-	String depth = (String)request.getAttribute("depth");
-	UserVo uservo = (UserVo)session.getAttribute("authUser");
-	int userNo = uservo.getNo();
-	String title = request.getParameter("title");
-	String content = request.getParameter("content");
-	BoardVo vo = (BoardVo)session.getAttribute("vo");
-%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +16,7 @@
  
                 <tr height="40">
                     <td width="150" align="center">제목</td>
-                    <td width="450"><input type="text" name="title" value="[답변]<%=vo.getTitle() %>" 
+                    <td width="450"><input type="text" name="title" value="[답변]${sessionScope.vo.title}" 
                         size="60"></td>
                 </tr>
  
@@ -45,7 +29,7 @@
                 <tr height="40">
                     <td width="150" align="center">글내용</td>
                     <td width="450">
-                    	<textarea rows="10" cols="60" name="content"><%=vo.getTitle() %>
+                    	<textarea rows="10" cols="60" name="content">${sessionScope.vo.content}
 ========답변 글을 쓰세요.=======
                     	</textarea>
                     </td>
@@ -63,11 +47,11 @@
                 </tr>
  
             </table>
-            <input type=hidden name=nowPage value="<%=nowPage%>">
-        <input type=hidden name=ref value="<%=ref%>">        <!--  read.jsp에서 읽는게시물 -->
-        <input type=hidden name=pos value="<%=pos%>">        <!--  read.jsp에서 읽는게시물 -->
-        <input type=hidden name=depth value="<%=depth%>">
-        <input type=hidden name=userNo value="<%=userNo%>">    <!--  read.jsp에서 읽는게시물 -->
+            <input type="hidden" name="nowPage" value="${nowPage}">
+        <input type="hidden" name="ref" value="${ref}">        <!--  read.jsp에서 읽는게시물 -->
+        <input type="hidden" name="pos" value="${pos}">        <!--  read.jsp에서 읽는게시물 -->
+        <input type="hidden" name="depth" value="${depth}">
+        <input type="hidden" name="userNo" value="${sessionScope.authUser.no}">    <!--  read.jsp에서 읽는게시물 -->
         </form>
     </center>
 </body>
