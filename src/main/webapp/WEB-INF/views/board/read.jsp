@@ -1,22 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%> 
-<%@ page import="com.kosta.hsm.dao.BoardDaoImpl"%>
-<%@ page import="com.kosta.hsm.dao.BoardDao"%>
-<%@ page import="com.kosta.hsm.vo.BoardVo"%>
 <% pageContext.setAttribute( "newLine", "\n" ); %>
-<%
-	int no = Integer.parseInt(request.getParameter("no"));
-	BoardDao dao = new BoardDaoImpl();
-	BoardVo vo = dao.getBoard(no);
-	String filename1 = vo.getFilename1();
-	long filesize1 = vo.getFilesize1();
-	String filename2 = vo.getFilename2();
-	long filesize2 = vo.getFilesize2();
-	String pass =vo.getPass();
-	int nowPage = Integer.parseInt(request.getParameter("nowPage"));
-	
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,19 +37,29 @@
 					<tr>
 						<td class="label">첨부파일</td>
 						<td>
-							<% if( filename1 !=null && !filename1.equals("")) {%>
-								<a href="/mysite/board?a=download&filename=${boardVo.filename1 }">${boardVo.filename1 }</a>
-							&nbsp;&nbsp;<font color="blue">(${boardVo.filesize1 }KBytes)</font>  
-  		 					<%} else{%> 등록된 파일이 없습니다.<%}%>
+							<c:choose>
+								<c:when test="${empty boardVo.filename1}">
+									<a href="/mysite/board?a=download&filename=${boardVo.filename1 }">${boardVo.filename1 }</a>
+									&nbsp;&nbsp;<font color="blue">(${boardVo.filesize1 }KBytes)</font>  
+								</c:when>
+								<c:otherwise>
+  		 							등록된 파일이 없습니다.
+  		 						</c:otherwise>
+  		 					</c:choose>
 						</td>
 					</tr>
 					<tr>
 						<td class="label">첨부파일</td>
 						<td>
-							<% if( filename2 !=null && !filename2.equals("")) {%>
-								<a href="/mysite/board?a=download&filename=${boardVo.filename2 }">${boardVo.filename2 }</a>
-							&nbsp;&nbsp;<font color="blue">(${boardVo.filesize2 }KBytes)</font>  
-  		 					<%} else{%> 등록된 파일이 없습니다.<%}%>
+							<c:choose>
+								<c:when test="${empty boardVo.filename2}">
+									<a href="/mysite/board?a=download&filename=${boardVo.filename2 }">${boardVo.filename2 }</a>
+									&nbsp;&nbsp;<font color="blue">(${boardVo.filesize2 }KBytes)</font> 
+								</c:when>
+								<c:otherwise>
+  		 							등록된 파일이 없습니다.
+  		 						</c:otherwise>
+  		 					</c:choose>
 						</td>
 					</tr>
 				</table>
@@ -71,10 +67,10 @@
 					<a href="/mysite/board">글목록</a>
 					
 					<c:if test="${authUser.no == boardVo.userNo }">
-						<a href="/mysite/board?a=modifyform&no=${boardVo.no }&nowPage=<%=nowPage%>&pass=<%=pass%>">글수정</a>
+						<a href="/mysite/board?a=modifyform&no=${boardVo.no }&nowPage=${param.nowPage}&pass=${boardVo.pass}">글수정</a>
 					</c:if>
 					<c:if test="${authUser.no != null}">
-						<a href="/mysite/board?a=reply&nowPage=<%=nowPage%>&ref=${boardVo.ref}&depth=${boardVo.depth}&pos=${boardVo.pos}&userNo=${boardVo.userNo}" >답 변</a>
+						<a href="/mysite/board?a=reply&nowPage=${param.nowPage}&ref=${boardVo.ref}&depth=${boardVo.depth}&pos=${boardVo.pos}&userNo=${boardVo.userNo}" >답 변</a>
 					</c:if>
 				</div>
 			</div>
