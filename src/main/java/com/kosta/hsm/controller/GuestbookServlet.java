@@ -26,7 +26,6 @@ public class GuestbookServlet extends HttpServlet {
 		System.out.println("gb:" + actionName);
 		
 		if ("add".equals(actionName)) {
-		  System.out.println("여기로 들어오네요...");
 			String name = request.getParameter("name");
 			String password = request.getParameter("password");
 			String content = request.getParameter("content");

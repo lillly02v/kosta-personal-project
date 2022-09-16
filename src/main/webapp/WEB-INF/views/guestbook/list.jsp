@@ -38,7 +38,7 @@
 					</form>
 					<ul>
 						
-						<c:forEach items="${list}" var="vo">
+						<c:forEach items="${list}" var="vo"> <!-- GuestbookServlet의 else부분의 setAttribute해준 list-->
 							<li>
 								<table style="border-collapse:collapse">
 									<tr>
@@ -49,7 +49,7 @@
 									</tr>
 									<tr>
 										<td colspan=4>
-										${fn:replace(vo.content, newLine, "<br>")}
+										${fn:replace(vo.content, newLine, "<br>")} <!-- ${fn:replace(string1, '검색단어', '바꿀단어')} -->
 										</td>
 									</tr>
 								</table>

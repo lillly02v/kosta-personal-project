@@ -16,7 +16,7 @@ public class MainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 			
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main/index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main/index.jsp"); //mysite(프로젝트명)/main(설정한 url패턴)이동시, index.jsp로 이동
 		rd.forward(request, response);
 	}
 
