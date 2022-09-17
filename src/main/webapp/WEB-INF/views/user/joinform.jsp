@@ -15,9 +15,9 @@
 				var params = { a		: "idcheck"
 								,	 email : $("[name=email]").val()}
 				$.ajax({
-					url: "/mysite/user",
+					url: "/mysite/user", //요청할 서버url
 					type: "post",
-					data : params,
+					data : params, //보낼 데이터
 					dataType : "json",
 					success : function(isExist) {
 						console.log(isExist);
@@ -108,7 +108,7 @@
 							<label>서비스 약관에 동의합니다.</label>
 						</fieldset>
 						
-						<input type="submit" value="가입하기" onClick="return check();">
+						<input type="submit" value="가입하기" onClick="return check();"> <!-- js check메서드 -->
 						
 					</form>
 					

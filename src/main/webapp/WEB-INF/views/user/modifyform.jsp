@@ -22,7 +22,7 @@
 						<input type="hidden" name="a" value="modify" />
 						
 						<label class="block-label" for="name">이름</label>
-						<input id="name" name="name" type="text" value="${userVo.name}" />
+						<input id="name" name="name" type="text" value="${userVo.name}" /> <!-- UserServlet의 actionName modifyform에서 setAttribute한 userVo -->
 	
 						<label class="block-label" for="email">이메일</label>
 						<strong>${userVo.email}</strong>

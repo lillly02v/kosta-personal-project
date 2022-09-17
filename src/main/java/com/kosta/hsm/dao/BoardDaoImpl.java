@@ -76,8 +76,8 @@ public class BoardDaoImpl implements BoardDao {
 				vo.setNo(rs.getInt("no"));
 				vo.setUserName(rs.getString("name"));
 				vo.setTitle(rs.getString("title"));
-				vo.setPos(rs.getInt("pos"));//답변위치값
-				vo.setRef(rs.getInt("ref"));//답변
+				vo.setPos(rs.getInt("pos"));
+				vo.setRef(rs.getInt("ref"));
 				vo.setDepth(rs.getInt("depth"));
 				vo.setHit(rs.getInt("hit"));
 				vo.setUserNo(rs.getInt("user_no"));

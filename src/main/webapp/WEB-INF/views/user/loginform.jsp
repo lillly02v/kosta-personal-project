@@ -28,7 +28,7 @@
 						<label class="block-label">패스워드</label> 
 						<input name="password" type="password" value="">
 						
-						<c:if test="${param.result eq 'fail' }">
+						<c:if test="${param.result eq 'fail' }"> <!-- request.getParameter("result")랑 같음. eq은 ==와 같음.  -->
 								<P>로그인이 실패했습니다. 다시입력해주세요</P>
 						</c:if>
 	

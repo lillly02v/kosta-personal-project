@@ -8,10 +8,10 @@ public class BoardVo {
 	private String regDate;
 	private int userNo;
 	private String userName;
-	private int depth;
+	private int depth; //답변글의 list에서의 tab깊이를 결정
 	private int count;  
-	private int pos;
-	private int ref;
+	private int pos; // 답변글들끼리의 list에서의 순서를 결정
+	private int ref; //부모글과 답변글이 같은 값. 부모글들의 순서를 결정
 	private String filename1;
 	private long filesize1;
 	private String filename2;

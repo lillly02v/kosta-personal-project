@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%
-System.out.println("pass:"+request.getParameter("pass"));
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +10,7 @@ System.out.println("pass:"+request.getParameter("pass"));
 <script>
 	function check(){
 		var password = document.getElementById("pass");
-		if('${param.pass}'!==password.value){
+		if('${param.pass}'!==password.value){ //js에서 el을 사용하려면 ''로 묶어서 사용해야 한다
 			alert("비밀번호가 틀렸습니다. 다시 입력해 주세요.");
 			password.focus();
 			return false;
@@ -46,16 +43,16 @@ System.out.println("pass:"+request.getParameter("pass"));
 								<textarea id="content" name="content">${boardVo.content}</textarea>
 							</td>
 						</tr>
-						<c:if test="${boardVo.pos > 0}">
-						<tr>
-							<td class="label">비밀번호</td>
-								<td><input type="password" id="pass" name="pass" value=""></td>
-						</tr>
+						<c:if test="${boardVo.pos > 0}"> <!-- 답변글은 pos가 1이상 -->
+							<tr>
+								<td class="label">비밀번호</td>
+									<td><input type="password" id="pass" name="pass" value=""></td>
+							</tr>
 						</c:if>
 					</table>
 				
 					<div class="bottom">
-						<a href="/mysite/board?a=list&nowPage=${param.nowPage}">취소</a>
+						<a href="/mysite/board?a=list&nowPage=${param.nowPage}">취소</a> <!-- request.getParameter("nowPage") -->
 						<input type="submit" value="수정" onClick="return check();">
 					</div>
 				</form>				
