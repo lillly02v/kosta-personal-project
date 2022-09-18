@@ -24,7 +24,7 @@
 					</tr>
 					<tr>
 						<td class="label">제목</td>
-						<td>${boardVo.title }</td> <!-- servlet에서 setAttribute한 값 받아오기 -->
+						<td>${boardVo.title }</td> <%-- servlet에서 setAttribute한 값 받아오기 --%>
 					</tr>
 					<tr>
 						<td class="label">내용</td>
@@ -38,7 +38,7 @@
 						<td class="label">첨부파일</td>
 						<td>
 							<c:choose>
-								<c:when test="${not empty boardVo.filename1}"> <!-- empty - 객체의 값이 null 또는 빈값인지 물어보는 연산자 -->
+								<c:when test="${not empty boardVo.filename1}"> <%-- empty - 객체의 값이 null 또는 빈값인지 물어보는 연산자 --%>
 									<a href="/mysite/board?a=download&filename=${boardVo.filename1 }">${boardVo.filename1 }</a>
 									&nbsp;&nbsp;<font color="blue">(${boardVo.filesize1 }KBytes)</font>  
 								</c:when>
@@ -66,10 +66,10 @@
 				<div class="bottom">
 					<a href="/mysite/board">글목록</a>
 					
-					<c:if test="${authUser.no == boardVo.userNo }"> <!-- 로그인한 사용자와 게시판 글쓴 사람이 같으면 글수정 버튼 보이기 -->
+					<c:if test="${authUser.no == boardVo.userNo }"> <%-- 로그인한 사용자와 게시판 글쓴 사람이 같으면 글수정 버튼 보이기 --%>
 						<a href="/mysite/board?a=modifyform&no=${boardVo.no }&nowPage=${param.nowPage}&pass=${boardVo.pass}">글수정</a>
 					</c:if>
-					<c:if test="${authUser.no != null}"> <!-- 로그인한 유저가 있다면 답변 버튼 보이기 -->
+					<c:if test="${authUser.no != null}"> <%-- 로그인한 유저가 있다면 답변 버튼 보이기 --%>
 						<a href="/mysite/board?a=reply&nowPage=${param.nowPage}&ref=${boardVo.ref}&depth=${boardVo.depth}&pos=${boardVo.pos}&userNo=${boardVo.userNo}" >답 변</a>
 					</c:if>
 				</div>

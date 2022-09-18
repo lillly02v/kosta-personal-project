@@ -36,14 +36,23 @@ public class BoardServlet extends HttpServlet {
 		if ("list".equals(actionName)) {
 			// 리스트 가져오기
 			BoardDao dao = new BoardDaoImpl();
-			  int numPerPage=3; // 페이지당 레코드 수 
-			  int totalRecord=0; //전체레코드수
+			int totalRecord=0; //전체레코드수
+			int numPerPage=3; // 페이지당 레코드 수 
+			int pagePerBlock=5; //블럭당 페이지수 
+			
+			int totalPage=0; //전체 페이지 수
+			int totalBlock=0;  //전체 블럭수 
 
-			  int nowPage=1; // 현재페이지
+			int nowPage=1; // 현재페이지
+			int nowBlock=1;  //현재블럭
 			  
-			  int start=0; //디비의 select 시작번호
-			  int end=10; //시작번호로 부터 가져올 select 갯수
+			int start=0; //디비의 select 시작번호
+			int end=10; //시작번호로 부터 가져올 select 갯수
+			
+			int listSize=0; //현재 읽어온 게시물의 수
 			  
+			List<BoardVo> vlist = null;
+			
 			String kwd = "", keyField = "";
 			if (request.getParameter("kwd")!=null) {
 				kwd = request.getParameter("kwd");
@@ -63,6 +72,15 @@ public class BoardServlet extends HttpServlet {
 			System.out.println("totalRecord:"+totalRecord);
 			System.out.println("stat:"+start);
 			System.out.println("end:"+end);
+			
+			totalPage = (int)Math.ceil((double)totalRecord / numPerPage);  //전체페이지수
+			nowBlock = (int)Math.ceil((double)nowPage/pagePerBlock); //현재블럭 계산
+			totalBlock = (int)Math.ceil((double)totalPage / pagePerBlock);  //전체블럭계산
+			
+			listSize = list.size();//브라우저 화면에 보여질 게시물 번호
+			
+			int pageStart = (nowBlock -1)*pagePerBlock + 1 ; //하단 페이지 시작번호
+			int pageEnd = ((pageStart + pagePerBlock ) <= totalPage) ?  (pageStart + pagePerBlock): totalPage+1;//하단 페이지 끝번호 
 
 			// 리스트 화면에 보내기
 			request.setAttribute("start", start);
@@ -72,6 +90,11 @@ public class BoardServlet extends HttpServlet {
 			request.setAttribute("list", list);
 			request.setAttribute("kwd", kwd);
 			request.setAttribute("keyField", keyField);
+			request.setAttribute("numPerPage", numPerPage);
+			request.setAttribute("listSize", listSize);
+			request.setAttribute("totalPage", totalPage);
+			request.setAttribute("pageStart", pageStart);
+			request.setAttribute("pageEnd", pageEnd);
 			
 			//WebUtil.forward(request, response, "/WEB-INF/views/board/list.jsp");
 			

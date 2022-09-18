@@ -18,7 +18,7 @@
 		
 		<div id="content">
 			<div id="board">
-				<form class="board-form" method="post" action="/mysite/upload" enctype="multipart/form-data"> <!-- enctype는 폼 데이터가 서버로 제출될 때 해당 데이터가 인코딩되는 방법. method가 post인 경우에만 사용가능. multipart/form-data 파일이나 이미지를 서버로 전송  -->
+				<form class="board-form" method="post" action="/mysite/upload" enctype="multipart/form-data"> <%-- enctype는 폼 데이터가 서버로 제출될 때 해당 데이터가 인코딩되는 방법. method가 post인 경우에만 사용가능. multipart/form-data 파일이나 이미지를 서버로 전송  --%>
 					<table class="tbl-ex">
 						<tr>
 							<th colspan="2">글쓰기</th>
@@ -52,7 +52,7 @@
 
 		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
-	</div><!-- /container -->
+	</div><%-- /container --%>
 </body>
 </html>		
 		

@@ -17,7 +17,7 @@
                 <tr height="40">
                     <td width="150" align="center">제목</td>
                     <td width="450">
-                    	<input type="text" name="title" value="[답변]${sessionScope.vo.title}" size="60"> <!-- (BoardVo)session.getAttribute("vo").getTitle() -->
+                    	<input type="text" name="title" value="[답변]${sessionScope.vo.title}" size="60"> <%-- (BoardVo)session.getAttribute("vo").getTitle() --%>
                     </td>
                 </tr>
  
@@ -36,24 +36,24 @@
                     	</textarea>
                     </td>
                 </tr>
-                <!-- form에서 사용자로부터 입력 받지 않고 데이터를 넘김 -->
+                <%-- form에서 사용자로부터 입력 받지 않고 데이터를 넘김 --%>
                 <tr height="40">
-                    <!-- 각 데이터에 맞는 버튼을 만들어준다. -->
+                    <%-- 각 데이터에 맞는 버튼을 만들어준다. --%>
                     <td align="center" colspan="2">
                         <input type="submit" value="답글쓰기완료">
                         &nbsp;&nbsp; 
                         <input type="reset" value="다시쓰기"> &nbsp;&nbsp;
                         <input type="button" onclick="location.href='/mysite/board'"value="전체글보기">
                     </td>
-                    <!-- 리스트 화면으로 돌아가는 버튼 -->
+                    <%-- 리스트 화면으로 돌아가는 버튼 --%>
                 </tr>
  
             </table>
-            <input type="hidden" name="nowPage" value="${nowPage}"> <!-- (String)request.getAttribute("nowPage") servlet에서 jsp로 값 전달받기 -->
+            <input type="hidden" name="nowPage" value="${nowPage}"> <%-- (String)request.getAttribute("nowPage") servlet에서 jsp로 값 전달받기 --%>
         	<input type="hidden" name="ref" value="${ref}">        
         	<input type="hidden" name="pos" value="${pos}">       
         	<input type="hidden" name="depth" value="${depth}">
-        	<input type="hidden" name="userNo" value="${sessionScope.authUser.no}"> <!-- (UserVo)session.getAttribute("authUser").getNo() -->
+        	<input type="hidden" name="userNo" value="${sessionScope.authUser.no}"> <%-- (UserVo)session.getAttribute("authUser").getNo() --%>
         </form>
     </center>
 </body>

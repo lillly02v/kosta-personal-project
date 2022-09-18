@@ -2,4 +2,4 @@
     
 		<div id="footer">
 			<p>(c)opyright 2015 ~ 2021</p>
-		</div> <!-- /footer -->
+		</div> <%-- /footer --%>

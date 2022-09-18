@@ -43,7 +43,7 @@
 								<textarea id="content" name="content">${boardVo.content}</textarea>
 							</td>
 						</tr>
-						<c:if test="${boardVo.pos > 0}"> <!-- 답변글은 pos가 1이상 -->
+						<c:if test="${boardVo.pos > 0}"> <%-- 답변글은 pos가 1이상 --%>
 							<tr>
 								<td class="label">비밀번호</td>
 									<td><input type="password" id="pass" name="pass" value=""></td>
@@ -52,7 +52,7 @@
 					</table>
 				
 					<div class="bottom">
-						<a href="/mysite/board?a=list&nowPage=${param.nowPage}">취소</a> <!-- request.getParameter("nowPage") -->
+						<a href="/mysite/board?a=list&nowPage=${param.nowPage}">취소</a> <%-- request.getParameter("nowPage") --%>
 						<input type="submit" value="수정" onClick="return check();">
 					</div>
 				</form>				
