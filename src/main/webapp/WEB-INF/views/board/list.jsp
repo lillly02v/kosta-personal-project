@@ -72,7 +72,7 @@
 												</c:forEach>
 												ㄴ
 											</c:if>
-											<a href="/mysite/board?a=read&no=${requestScope.list[status.index].no}&nowPage=${requestScope.nowPage}>">${requestScope.list[status.index].title}</a>
+											<a href="/mysite/board?a=read&no=${requestScope.list[status.index].no}&nowPage=${requestScope.nowPage}">${requestScope.list[status.index].title}</a>
 										</td>
 										<td>${requestScope.list[status.index].userName}</td>
 										<td>${requestScope.list[status.index].hit}</td>
