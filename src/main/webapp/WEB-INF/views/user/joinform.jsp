@@ -108,17 +108,17 @@
 							<label>서비스 약관에 동의합니다.</label>
 						</fieldset>
 						
-						<input type="submit" value="가입하기" onClick="return check();"> <!-- js check메서드 -->
+						<input type="submit" value="가입하기" onClick="return check();"> <%-- js check메서드 --%>
 						
 					</form>
 					
-				</div><!-- /user -->
-			</div><!-- /content -->
-		</div><!-- /wrapper -->
+				</div><%-- /user --%>
+			</div><%-- /content --%>
+		</div><%-- /wrapper --%>
 		
 		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
-	</div> <!-- /container -->
+	</div> <%-- /container --%>
 
 </body>
 </html>

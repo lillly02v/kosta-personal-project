@@ -22,7 +22,7 @@
 						<input type="hidden" name="a" value="modify" />
 						
 						<label class="block-label" for="name">이름</label>
-						<input id="name" name="name" type="text" value="${userVo.name}" /> <!-- UserServlet의 actionName modifyform에서 setAttribute한 userVo -->
+						<input id="name" name="name" type="text" value="${userVo.name}" /> <%-- UserServlet의 actionName modifyform에서 setAttribute한 userVo --%>
 	
 						<label class="block-label" for="email">이메일</label>
 						<strong>${userVo.email}</strong>
@@ -45,13 +45,13 @@
 						<input type="submit" value="수정완료">
 						
 					</form>
-				</div><!-- /user -->
-			</div><!-- /content -->
-		</div><!-- /wrapper -->
+				</div><%-- /user --%>
+			</div><%-- /content --%>
+		</div><%-- /wrapper --%>
 		
 		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
-	</div> <!-- /container -->
+	</div> <%-- /container --%>
 
 </body>
 </html>

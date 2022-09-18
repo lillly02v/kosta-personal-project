@@ -24,13 +24,13 @@
 						<a href="/mysite/user?a=loginform">로그인하기</a>
 					</p>
 					
-				</div><!-- /user -->
-			</div><!-- /content -->
-		</div><!-- /wrapper -->
+				</div><%-- /user --%>
+			</div><%-- /content --%>
+		</div><%-- /wrapper --%>
 		
 		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
-	</div> <!-- /container -->
+	</div> <%-- /container --%>
 
 </body>
 </html>

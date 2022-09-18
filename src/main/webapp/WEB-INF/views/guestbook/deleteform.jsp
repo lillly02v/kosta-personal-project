@@ -19,8 +19,8 @@
 				<div id="guestbook" class="delete-form">
 					
 					<form method="post" action="/mysite/gb">
-						<input type="hidden" name="no" value="${param.no }"> <!-- ${param.no}는 request.getParameter("no")와 같음 -->
-						<input type="hidden" name="a"  value="delete"> <!-- actionName이 delete -->
+						<input type="hidden" name="no" value="${param.no }"> <%-- ${param.no}는 request.getParameter("no")와 같음 --%>
+						<input type="hidden" name="a"  value="delete"> <%-- actionName이 delete --%>
 						<label>비밀번호</label>
 						<input type="password" name="password">
 						<input type="submit" value="확인">
@@ -28,12 +28,12 @@
 					<a href="/mysite/gb">방명록 리스트</a>
 					
 				</div>
-			</div><!-- /content -->
-		</div><!-- /wrapper -->
+			</div><%-- /content --%>
+		</div><%-- /wrapper --%>
 		
 		<c:import url="/WEB-INF/views/includes/footer.jsp"></c:import>
 		
-	</div><!-- /container -->
+	</div><%-- /container --%>
 </body>
 </html>		
 		
